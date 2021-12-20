@@ -1,0 +1,149 @@
+<body>
+    <div class="wavesVentas">
+        <header class="contenedor grid-header mb-5">
+            <div class="logo">
+                <h1>Shopping Mall</h1>
+            </div>
+            <nav class="navegacion">
+            
+                
+                    <a class="nav__link " href="Productos.html"><i class="fas fa-boxes"></i>Productos</a>
+            
+            
+                    <a class="nav__link" href="clientes.html"><i class="fas fa-users"></i>Clientes</a>
+            
+            
+                    <a class="nav__link active" href="Ventas.html"><i class="fas fa-dollar-sign"></i>Ventas</a>
+            
+                    <a class="nav__link " href="Reportes.html"><i class="far fa-file-alt"></i>Reportes</a>
+            
+                    <a class="nav__link" href="Consolidacion.html"><i class="fas fa-file-invoice-dollar"></i>Consolidación</a>
+            
+            </nav>
+        </header>
+
+        <section class="">
+            <div class="contenedor">
+                <div class="contenedor-titulo">
+                    <h2 class="text-center">Sede <span>Bogotá</span></h2>
+                </div>
+        </section>
+
+        <main class="contenedor">
+            <div class="grid__cedula">
+                <div class="input-group">
+                    <label class="input-fill" for="cedula">
+                        <input type="text" id="cedula">
+                        <span class="input-label">Cédula:</span>
+                        <i class="fas fa-id-badge"></i>
+                    </label>
+                </div>
+                
+                <div class="boton__consultar">
+                    <input type="submit" value="Consultar">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-fill" for="cliente">
+                        <input type="text" id="cliente">
+                        <span class="input-label">Cliente:</span>
+                        <i class="fas fa-signature"></i>
+                    </label>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-fill" for="consecutivo">
+                        <input type="text" id="consecutivo">
+                        <span class="input-label">Consecutivo:</span>
+                        <i class="fas fa-user-plus"></i>
+                    </label>
+                </div>
+            </div><!-- FIN DE GRID__CEDULA  -->
+
+            <section class="producto mt-5">
+                <div class="grid__producto">
+                    <div class="grid__header">
+                        <div class="titulo__producto"><p>Código producto</p></div>
+                        <div class="titulo__producto"><p>Nombre del producto</p></div>
+                        <div class="titulo__producto"><p>Cantidad</p></div>
+                        <div class="titulo__producto"><p>Valor total</p></div>
+                    </div>
+                    <!-- CAMPOS -->
+                    <div class="grid__campos">
+                        <div class="input-group">
+                            <label class="input-fill" for="cod_producto">
+                                <input type="text" id="cod_producto">
+                                <i class="fas fa-hashtag"></i>
+                            </label>
+                        </div><!-- CAMPO PRODUCTO -->
+
+                        <div class="boton__ventas">
+                            <input type="submit" value="Consultar">
+                        </div> <!-- BOTON -->
+
+                        <div class="input-group nombre_producto">
+                            <label class="input-fill" for="nombre_producto">
+                                <input type="text" id="nombre_producto">
+                                <i class="fas fa-carrot"></i>
+                            </label>  
+                        </div><!-- CAMPO PRODUCTO -->
+                        
+                        <div class="input-group">
+                            <label class="input-fill" for="cantidad_producto">
+                                <input type="text" id="cantidad_producto">
+                                <i class="fas fa-plus"></i>
+                            </label>
+                        </div> <!-- CANT PROD  -->
+
+                        <div class="input-group valor_total">
+                            <label class="input-fill" for="valor_total">
+                                <input type="text" id="valor_total">
+                                <i class="fas fa-dollar-sign"></i>
+                            </label>
+                        </div> <!-- CAMPO VALOR TOTAL -->
+
+                        <div class="boton__agregar">
+                            <div class="boton__agregar">
+                                <input type="submit" value="Agregar producto">
+                            </div>
+                        </div> <!-- BTN AGREGAR -->
+                    </div>
+                </div><!-- FIN GRID -->
+            </section>
+            <!-- CAJAS DE TOTALES -->
+            <section class="cajas__totales mt-5">
+                <div class="total__venta">
+                    <p>Total Venta</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_venta">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    
+                </div>
+                <div class="total__venta">
+                    <p>Total IVA</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_iva">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="total__venta">
+                    <p>Total con IVA</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_con_iva">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="boton_confirmar mt-5">
+                <div class="boton__agregar">
+                    <div class="boton__agregar">
+                        <input type="submit" value="Confirmar">
+                    </div>
+                </div> <!-- BTN AGREGAR -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>

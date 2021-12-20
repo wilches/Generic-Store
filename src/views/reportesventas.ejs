@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='<%- session.lang %>'>
+    <%- include('../template/cabezal', {title: 'Shopping Mall - Reporte de Ventas'}) %>
+    <body>
+        <%- include('../template/navbar', {session, option: 'reportes'}) %>
+    
+        <section class="">
+            <div class="contenedor">
+                <div class="contenedor-titulo">
+                    <h2 class="text-center">Sede <span> <%= session.ubication %></span></h2>
+                    <h3 class="text-center">Total de ventas por cliente</span></h3>
+                </div>
+                <section class="botones__reportes">
+                    <div class="listado__clientes">
+                        <button class="boton-reportes" role="link" onclick="window.location='reportesclientes'">Listado de clientes</button>
+                    </div>
+                    <div class="ventas__clientes">
+                        <button class="boton-reportes" role="link" onclick="window.location='reportesventas'">Ventas por cliente</button>
+                    </div>
+                </section>
+            </div>
+            <main class="contenedor">
+                <section class="contenedor__tabla__VC">                   
+                    <!-- Inicia Encabezados de tabla -->
+                    <div class="tabla__header"><p>Cédula</p></div>
+                    <div class="tabla__header"><p>Nombre</p></div>
+                    <div class="tabla__header"><p>Valor total ventas</p></div>
+                    <!-- Finaliza encabezados de tabla -->
+                    <% if(arrayReport.length >0){ %> <% arrayReport.forEach(venta =>{ %>
+                    <div class="tabla__item"><p><%= venta.id_number %></p></div>
+                    <div class="tabla__item"><p><%= venta.name %></p></div>
+                    <div class="tabla__item"><p> <i class="fas fa-dollar-sign"></i> <%= venta.totalSale %></p></div>
+                    <% }) %> <% } %>
+                    
+                    
+                </section>
+                <div class="total__venta">
+                    <p>Total Venta</p>
+                    <div class="total__venta__caja">
+                        <i class="fas fa-dollar-sign"></i>
+                        <%= total.toFixed(2) %>
+                    </div>
+                </div>
+            </main>
+        </section>
+        <%- include('../template/footer') %>
+        <%- include('../template/scripts.ejs') %>
+    </body>
+    </html>>

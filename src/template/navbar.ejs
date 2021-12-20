@@ -1,0 +1,37 @@
+<header class="contenedor grid-header mb-5">
+    <div class="logo" onclick="window.location.href='main'" style="user-select: none; cursor: pointer">
+        <h1>Shopping Mall</h1>
+    </div>
+    <nav class="navegacion">
+        <%# Sólo el rol de admin (0) podrá acceder y subir productos. %>
+        <% if( session.role === 0 ) { %> 
+            <a class="nav__link" href="/productos"><i class="fas fa-boxes"></i>Productos</a>
+            <%# Es necesario que sea rol admin y a la vez su ubicación sea distinta de all para añadir o ver clientes %>
+            <% if( session.ubication != 'all' ) { %>
+                <a class="nav__link" href="/clientes"><i class="fas fa-users"></i>Clientes</a>
+            <% } %>
+        <% } %>
+        <%# Sólo si especificó una ubicación podrá crear ventas. %>
+        <% if( session.ubication != 'all' ) { %>
+             <a class="nav__link" href="/ventas"><i class="fas fa-dollar-sign"></i>Ventas</a> 
+        <% } %>
+        <a class="nav__link" href="/reportes"><i class="far fa-file-alt"></i>Reportes</a>
+        <a class="nav__link" href="/consolidacion"><i class="fas fa-file-invoice-dollar"></i>Consolidación</a>
+        <a class="nav__link" href="/killSession"><i class="fas fa-sign-out-alt"></i>Salir</a>
+    </nav>
+
+    <script>
+        //Esperamos a que todo el documento sea cargado.
+        document.addEventListener("DOMContentLoaded", function() {
+            //Traemos el menú y la opción que es traida del include.
+            let menu_options = $('.navegacion a');
+            let option = ejs.render('<%= option %>').toUpperCase();
+            //Si encuentra dicha opción, se marcará dicho elemento en verde.
+            menu_options.each( function(i, val){
+                if( val.text.toUpperCase() == option ) { val.classList.add('active') }
+            });
+        });
+    </script>
+    
+        <!-- use class active for show a href of color green--> 
+</header>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700;800&display=swap&subset=latin" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Reportes - Ventas por cliente </title>
+</head>
+<body>
+    <header class="contenedor grid-header mb-5">
+        <div class="logo">
+            <h1>Shopping Mall</h1>
+        </div>
+        <nav class="navegacion">
+           
+            
+                <a class="nav__link " href="Productos.html"><i class="fas fa-boxes"></i>Productos</a>
+           
+           
+                <a class="nav__link" href="clientes.html"><i class="fas fa-users"></i>Clientes</a>
+           
+          
+                <a class="nav__link" href="Ventas.html"><i class="fas fa-dollar-sign"></i>Ventas</a>
+          
+                <a class="nav__link active" href="Reportes.html"><i class="far fa-file-alt"></i>Reportes</a>
+           
+                <a class="nav__link" href="Consolidacion.html"><i class="fas fa-file-invoice-dollar"></i>Consolidación</a>
+          
+          
+        
+        </nav>
+    </header>
+
+    <section class="">
+        <div class="contenedor">
+            <div class="contenedor-titulo">
+                <h2 class="text-center">Sede <span>Bogotá</span></h2>
+                <h3 class="text-center">Total de ventas por cliente</span></h3>
+            </div>
+            <section class="botones__reportes">
+                <div class="listado__clientes">
+                    <button class="boton-reportes" role="link" onclick="window.location='reportes_listadoClientes.html'">Listado de clientes</button>
+                </div>
+                <div class="ventas__clientes">
+                    <button class="boton-reportes" role="link" onclick="window.location='reportes_ventasCliente.html'">Ventas por cliente</button>
+                </div>
+            </section>
+        </div>
+        <main class="contenedor">
+            <section class="contenedor__tabla__VC">
+                <!-- Inicia Encabezados de tabla -->
+                <div class="tabla__header"><p>Cédula</p></div>
+                <div class="tabla__header"><p>Nombre</p></div>
+                <div class="tabla__header"><p>Valor total ventas</p></div>
+                <!-- Finaliza encabezados de tabla -->
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+
+                <div class="tabla__item"><p>Ejemplo 1</p></div>
+                <div class="tabla__item"><p>Ejemplo 2</p></div>
+                <div class="tabla__item"><p>Ejemplo 3</p></div>
+                
+            </section>
+            <div class="total__venta">
+                <p>Total Venta</p>
+                <div class="total__venta__caja">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados - ShoppingMall 2021</p>
+    </footer>
+</body>
+</html>

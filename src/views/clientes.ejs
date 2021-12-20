@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='<%- session.lang %>'>
+    <%- include('../template/cabezal', {title: 'Shopping Mall - Clientes'}) %>
+<body>
+    <div class="wavesClientes">
+        <%- include('../template/navbar', {session, option:'clientes'}) %>
+    
+        <main class="contenedor">
+            <div class="sede text-center">
+                <h2>Sede <span> <%= session.ubication %></span></h2>
+            </div>
+            <div class="contenedor-form">
+                <form action='/clientes/create' class="formulario-clientes" method="post">
+                    
+                    <div class="grid-cajas">
+                        <div class="input-group cedula">
+                            <label class="input-fill" for="cedula">
+                                <input type="text" id="cedula">
+                                <span class="input-label">Cédula:</span>
+                                <i class="fas fa-id-badge"></i>
+                            </label>
+                        </div>
+    
+                        <div class="input-group telefono">
+                            <label class="input-fill" for="telefono">
+                                <input type="tel" id="telefono">
+                                <span class="input-label">Teléfono:</span>
+                                <i class="fas fa-phone-square-alt"></i>
+                            </label>
+                        </div>
+    
+                        <div class="input-group direccion">
+                            <label class="input-fill" for="direccion">
+                                <input type="text" id="direccion" >
+                                <span class="input-label">Dirección:</span>
+                                <i class="fas fa-street-view"></i>
+                            </label>
+                        </div>
+    
+                        <div class="input-group nombre">
+                            <label class="input-fill" for="nombre">
+                                <input class="nombre" type="text" id="nombre">
+                                <span class="input-label">Nombre:</span>
+                                <i class="fas fa-signature"></i>
+                            </label>
+                        </div>
+    
+                        <div class="input-group correo">
+                            <label class="input-fill" for="correo">
+                                <input type="text" id="correo">
+                                <span class="input-label">Correo:</span>
+                                <i class="fas fa-at"></i>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    
+        <section class="contenedor botones">
+            <div class="grid-botones">
+                <div class="boton">
+                    <button id='search'>Consultar</button>
+                </div>
+    
+                <div class="boton">
+                    <button id="create">Crear</button>
+                </div>
+    
+                <div class="boton">
+                    <button id="update">Actualizar</button>
+                </div>
+    
+                <div class="boton">
+                    <button id="clear">Borrar</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <%- include('../template/scripts.ejs') %>
+    <script>
+        var idBtnSearch = '#search';
+        var idBtnCreate = '#create';
+        var idBtnUpdate = '#update';
+        var idBtnDelete = '#clear';
+
+        var idInputId = '#cedula';
+        var idInputPhone = '#telefono';
+        var idInputAddress = '#direccion';
+        var idInputName = '#nombre';
+        var idInputEmail = '#correo';
+
+        $(document).ready(function() {
+            $(idBtnSearch).click( searchClient );
+            $(idBtnCreate).click( ()=>{ saveClient('create') } );
+            $(idBtnUpdate).click( ()=>{ saveClient('update') } );
+            $(idBtnDelete).click( deleteClient );
+        })
+
+        function searchClient(){
+            let id = $(idInputId).val();
+            if(!id) toastr.error('Primero declarar la cédula del cliente.');
+            else{
+                $.post('clientes/search', {id}, function(res){
+                    if(!res.success){ toastr.error(res.msj); setClient( $(idInputId).val() ); }
+                    else{ res = res.client; setClient(res.id_number, res.phone, res.address, res.name, res.email); }
+                });
+            }
+        }
+
+        function saveClient(typeConsult){
+            let res = emptyFields();
+            if( !res.success ){ toastr.error(res.msj); return; }
+
+            $.ajax({
+                type: 'post',
+                url: 'clientes/'+typeConsult,
+                data: getClient(),
+                success: function(res){
+                    let value = res.success ? 'success':'error';
+                    toastr[value](res.msj);
+
+                    if(res.success) setClient();
+                },
+                error: function(jqXHR, status, error){
+                    toastr.error(error, status);
+                }
+            });
+        }
+
+        function deleteClient(){
+            $.post('clientes/delete', {id: $(idInputId).val()}, (res)=>{
+                let value = res.success ? 'success':'error';
+                toastr[value](res.msj);
+
+                if(res.success) setClient();
+            });
+        }
+
+        function getClient(){
+            return data = {
+                id_number: $(idInputId).val(),
+                name: $(idInputName).val(),
+                address: $(idInputAddress).val(),
+                phone: $(idInputPhone).val(),
+                email: $(idInputEmail).val()
+            }
+        }
+
+        function setClient(id, phone, address, name, email){
+            $(idInputId).val(id);
+            $(idInputPhone).val(phone);
+            $(idInputAddress).val(address);
+            $(idInputName).val(name);
+            $(idInputEmail).val(email);
+        }
+
+        function emptyFields(){
+            let json = {success:0};
+
+            if( !/^[0-9]{8,12}$/.test( $(idInputId).val() ) ) json.msj = 'El número de documento debe ser sólo números de 8 a 10 carácteres.';
+            else if( !/^[0-9]+$/.test( $(idInputPhone).val() ) ) json.msj = 'Asegurese de declarar el número de teléfono únicamente con números.';
+            else if( !/^[ 0-9A-Za-z#.-]+$/.test( $(idInputAddress).val() ) ) json.msj = 'La dirección del cliente sólo puede contener letras (no tildes ni ñ), números y los signos: #.-';
+            else if( !/^([A-Za-záéíóúÁÉÍÓÚñÑ]+ ?)+$/.test( $(idInputName).val() ) ) json.msj = 'El nombre del cliente sólo puede contener letras y espacios.';
+            else if( !/^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+(\.[a-z0-9-_]{2,})+$/.test( $(idInputEmail).val() ) ) json.msj = 'Correo invalido Ex: ejem88@plo.edu.co';
+            else json.success = 1;
+            
+            return json;
+        }
+    </script>
+</body>
+</html>

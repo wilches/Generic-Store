@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="225.677" height="1080" viewBox="0 0 225.677 1080">
+  <g id="waves" transform="translate(20.296 0)">
+    <path id="Trazado_1" data-name="Trazado 1" d="M179.237,0,150.559,90c-28.7,90-86.059,270-85.093,450s60.3,360,89.949,450l29.669,90H0V0Z" fill="#136f63"/>
+    <path id="Trazado_2" data-name="Trazado 2" d="M77.742,0,93.29,90C108.8,180,139.9,360,164.54,540s42.909,360,52,450l9.133,90H0V0Z" transform="translate(-20.296)" fill="#177d72"/>
+    <path id="Trazado_3" data-name="Trazado 3" d="M179.313,0,150.945,90c-28.368,90-85.1,270-81.532,450,3.537,180,67.418,360,99.323,450l31.94,90H0V0Z" transform="translate(-7.796)" fill="#1b8c81"/>
+    <path id="Trazado_4" data-name="Trazado 4" d="M19.748,0,19.09,90c-.658,90-1.975,270,16.983,450,18.914,180,58.146,360,77.719,450l19.616,90H0V0Z" fill="#1f9b91"/>
+    <path id="Trazado_5" data-name="Trazado 5" d="M185,0,158.5,90C132,180,79,360,66,540S80,900,93.5,990l13.5,90H0V0Z" fill="#22aaa1"/>
+  </g>
+</svg>

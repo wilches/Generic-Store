@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='<%- session.lang %>'>
+    <%- include('../template/cabezal', {title: 'Shopping Mall - Consolidacion'}) %>
+<body>
+    <%- include('../template/navbar', {option:'consolidación', session}) %>
+
+    <section class="">
+        <div class="contenedor">
+            <div class="contenedor-titulo">
+                <h2 class="text-center">Sede <span><%= session.ubication %></span></h2>
+                <h3 class="text-center">Total de ventas por ciudad</h3>
+            </div>
+            <!-- <section class="botones__reportes">
+                <div class="listado__clientes">
+                    <button class="boton-reportes">Listado de clientes</button>
+                </div>
+                <div class="ventas__clientes">
+                    <button class="boton-reportes">Ventas por cliente</button>
+                </div>
+            </section> -->
+        </div>
+        <main class="contenedor">
+            <section class="contenedor__tabla__consolidacion">
+                <!-- Inicia Encabezados de tabla -->
+                <div class="tabla__header"><p>Ciudad</p></div>
+                <div class="tabla__header"><p>Valor total ventas</p></div>
+                <!-- Finaliza encabezados de tabla -->
+                <% if(cons.length >0){ %> <% cons.forEach(city =>{%><% if(city.total != 0){ %>  
+                <div class="tabla__item" style="text-transform: capitalize" ><p><%= city.name %></p></div>
+                <div class="tabla__item"><p><i class="fas fa-dollar-sign"></i><%= city.total.toFixed(2) %></p></div>
+                <% } %> <% }) %> <% } %>
+
+            </section>
+            <div class="total__venta">
+                <p>Total Ventas Tienda</p>
+                <div class="total__venta__caja">
+                    <i class="fas fa-dollar-sign"></i>
+                    <%= totalGeneral.toFixed(2) %> 
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <%- include('../template/footer') %>
+    <%- include('../template/scripts') %>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang='<%- session.lang %>'>
+    <%- include('../template/cabezal', {title: 'Shopping Mall - Ventas'}) %>
+<body>
+    <div class="wavesVentas">
+        <%- include('../template/navbar', {session, option:'ventas'}) %>
+    
+        <section class="">
+            <div class="contenedor">
+                <div class="contenedor-titulo">
+                    <h2 class="text-center">Sede <span><%= session.ubication %></span></h2>
+                </div>
+        </section>
+
+        <main class="contenedor">
+            <div class="grid__cedula">
+                <div class="input-group">
+                    <label class="input-fill" for="cedula">
+                        <input type="number" id="cedula" placeholder='000000' min='0'>
+                        <span class="input-label">Cédula:</span>
+                        <i class="fas fa-id-badge"></i>
+                    </label>
+                </div>
+                
+                <div class="boton__consultar" id="btn-consult-client">
+                    <input type="submit" value="Consultar">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-fill" for="cliente">
+                        <input type="text" id="cliente" disabled placeholder='Nombre...'>
+                        <span class="input-label">Cliente:</span>
+                        <i class="fas fa-signature"></i>
+                    </label>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-fill" for="consecutivo">
+                        <input type="text" id="consecutivo" disabled style="text-align:center">
+                        <span class="input-label">Consecutivo:</span>
+                        <i class="fas fa-user-plus"></i>
+                    </label>
+                </div>
+            </div><!-- FIN DE GRID__CEDULA  -->
+
+
+            <table style="width:100%; margin:70px 0; border-spacing: 0px;">
+                <thead>
+                    <tr>
+                        <th style="background: #e0a500; padding:10px;">#</th>
+                        <th style="background: #e0a500; padding:10px;">Código producto</th>
+                        <th style="background: #e0a500; padding:10px;"></th>
+                        <th style="background: #e0a500; padding:10px;">Nombre del producto</th>
+                        <th style="background: #e0a500; padding:10px;">Cantidad</th>
+                        <th style="background: #e0a500; padding:10px;">Valor total</th>
+                        <th style="background: #e0a500; padding:10px;"></th>
+                    </tr>
+                </thead>
+
+                <tbody id="content-products"><!-- aqui se insertarán todos los productos, dicha estructura está creada en div#template.--></tbody>
+                <tbody id="template-products" style="display: none;">
+                    <tr>
+                        <th>#</th>
+                        <td>
+                            <div class="input-group">
+                                <label class="input-fill">
+                                    <input type="number" typeValue="code_product" placeholder='Código...' min='0'>
+                                    <i class="fas fa-hashtag"></i>
+                                </label>
+                            </div>
+                        </td>
+    
+                        <td>
+                            <div class="boton__agregar">
+                                <button typeValue="btn_search"><i class="fas fa-search"></i></button>
+                            </div> <!-- BOTON CONSULTAR-->
+                        </td>
+    
+                        <td>
+                            <div class="input-group nombre_producto">
+                                <label class="input-fill">
+                                    <input type="text" typeValue="name_product" placeholder='Nombre...' disabled>
+                                    <i class="fas fa-carrot"></i>
+                                </label>  
+                            </div><!-- CAMPO PRODUCTO -->
+                        </td>
+                        
+                        <td>
+                            <div class="input-group">
+                                <label class="input-fill">
+                                    <input type="number" typeValue="amount_product" placeholder='000' min='0'>
+                                    <i class="fas fa-plus"></i>
+                                </label>
+                            </div> <!-- CANT PROD  -->
+                        </td>
+    
+                        <td>
+                            <div class="input-group valor_total">
+                                <label class="input-fill">
+                                    <input type="number" typeValue="value_product" placeholder='000' disabled>
+                                    <i class="fas fa-dollar-sign"></i>
+                                </label>
+                            </div> <!-- CAMPO VALOR TOTAL -->
+                        </td>
+    
+                        <td>
+                            <div class="boton__agregar">
+                                <button typeValue="btn_add"><i class="fas fa-plus-circle"></i></button>
+                            </div>
+                        </td>
+                    <tr>
+                </tbody>
+            </table>
+
+
+            <section class="cajas__totales mt-5">
+                <div class="total__venta">
+                    <p>Total Venta</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_venta" readonly placeholder='000'>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    
+                </div>
+                <div class="total__venta">
+                    <p>Total IVA</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_iva" readonly placeholder='000'>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="total__venta">
+                    <p>Total con IVA</p>
+                    <div class="total__venta__caja input-fill">
+                        <input type="text" id="total_con_iva" readonly placeholder='000'>
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="boton_confirmar mt-5">
+                <div class="boton__agregar">
+                    <div class="boton__agregar">
+                        <input type="submit" id="sendSale" value="Confirmar">
+                    </div>
+                </div> <!-- BTN AGREGAR -->
+            </section>
+        </main>
+    </div>
+
+    <%- include('../template/scripts.ejs') %>
+    <script src="js/ventas.js"></script>
+</body>
+</html>

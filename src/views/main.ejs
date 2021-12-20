@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang='<%- session.lang %>'>
+    <%- include('../template/cabezal', {title: 'Shopping Mall - Main'}) %>
+<body>
+    <%- include('../template/navbar', {session, option: 'main'}) %>
+    <div class="sede text-center">
+        <h2>¡Bienvenidos!</h2>
+    </div>
+    <div style="height: calc(90vh - 140px - 164px - 50px - 150px)">
+        <img src="img/welcome.svg" alt="Welcome" height="100%" style="display:block; margin:auto">
+    </div>
+    <div class="contenedor-titulo contenedor mt-2">
+        <h3 class="text-center">Gracias por visitar nuestra tienda. </h3>
+        <h3 class="text-center">A continuación podrás ingresar a los diferentes módulos que tenemos en la barra de navegación</h3>
+    </div>
+    <%- include('../template/footer') %>
+    <%- include('../template/scripts.ejs') %>
+</body>
+</html>
